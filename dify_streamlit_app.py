@@ -27,7 +27,7 @@ if prompt:
         message_placeholder = st.empty()
 
         headers = {
-            'Authorization': f'Bearer {dify_api_key}',
+            'Authorization': 'Bearer app-3DBJ3MNTlJjqdkrUdXToLcw3',
             'Content-Type': 'application/json'
         }
 
