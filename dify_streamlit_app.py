@@ -3,7 +3,7 @@ import streamlit as st
 
 # シークレットからAPIキーを取得
 dify_api_key = st.secrets["DIFY_API_KEY"]
-url = 'hhttp://localhost/v1/chat-messages'
+url = 'http://localhost/v1/chat-messages'
 
 st.title('カラスのお悩み相談室')
 
@@ -38,7 +38,7 @@ if prompt:
         }
 
         payload = {
-            "inputs": {},
+            "inputs": {},  # 空オブジェクトでOK
             "query": prompt,
             "response_mode": "blocking",
             "conversation_id": st.session_state.conversation_id,
@@ -49,14 +49,10 @@ if prompt:
         try:
             response = requests.post(url, headers=headers, json=payload)
             response.raise_for_status()
-
             response_data = response.json()
-
             full_response = response_data.get("answer", "")
             new_conversation_id = response_data.get("conversation_id", st.session_state.conversation_id)
-
             st.session_state.conversation_id = new_conversation_id
-
         except requests.exceptions.RequestException as e:
             st.error(f"エラーが発生しました: {e}")
             full_response = "応答を取得中にエラーが発生しました。"
