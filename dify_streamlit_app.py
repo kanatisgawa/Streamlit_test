@@ -3,7 +3,7 @@ import streamlit as st
 
 # シークレットからAPIキーを取得
 dify_api_key = st.secrets["DIFY_API_KEY"]
-url = 'http://localhost/v1/chat-messages'
+url = 'http://localhost:11434/v1/chat-messages'
 
 st.title('カラスのお悩み相談室')
 
