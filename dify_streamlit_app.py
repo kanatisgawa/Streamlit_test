@@ -2,7 +2,7 @@ import requests
 import streamlit as st
 
 dify_api_key = st.secrets["DIFY_API_KEY"]
-url = 'http://localhost/v1/chat-messages'  # ポートをcurlと合わせる
+url = 'http://localhost:11434/v1/chat-messages'  # ポートをcurlと合わせる
 
 st.title('カラスのお悩み相談室')
 
