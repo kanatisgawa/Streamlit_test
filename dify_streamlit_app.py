@@ -34,9 +34,9 @@ if prompt:
         payload = {
             "inputs": {},
             "query": prompt,
-            "response_mode": "blocking",
-            "user": "alex-123",
-            "files": []
+            # "response_mode": "blocking",
+            "user": "alex-123"
+            # "files": []
         }
         if st.session_state.conversation_id:
             payload["conversation_id"] = st.session_state.conversation_id
